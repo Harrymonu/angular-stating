@@ -1,0 +1,15 @@
+<!-- <div class="fave"
+[title]="favorite"
+(click)='notifyMessage()'
+>
+    <h3>Add to favorite:<i class="fa fa-heart">
+        &nbsp; {{review}}
+    </i></h3>
+</div> -->
+
+
+<div class="fave"  (click)="notifyMessage()">
+    <h4>Add to Favorite: <i class="fa fa-heart" [class.faveSelected]="isSelected(fave)">
+            &nbsp;
+        </i>{{ reviews }}</h4>
+</div>

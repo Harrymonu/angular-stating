@@ -1,0 +1,33 @@
+<div class="container">
+  <section id="products">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let book of books" >
+      <div class="thumbnail">
+        <img [src]="book.imageUrl"
+                 [style.width.px]="imageWidth">
+        <div class="caption">
+          <inputoutput [review]="book.bookReviews" (notify)='onNotifyClicked($event)'></inputoutput>
+          <h4 class="pull-right">
+            {{book.price}}
+          </h4>
+          <h4><a [routerLink]="['/books',book.id]">{{book.name}}</a></h4>
+          <p><b>Description: </b>{{book.description | limitchar: '10'}}</p>
+          <p><b>Published On: </b>{{book.releaseDate | date: 'longDate' }}</p>
+          <p><b>In Stock: </b>{{book.inStock?'yes':'No' }}</p>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+            <p class="pull-right">Reviews {{book.starRating}}</p>
+            <div class="clearfix"></div>
+            <!-- <p class="text-success" *ngIf="book.booksInStock > 0">Number in Stock: {{book.booksInStock}}</p> -->
+            <inputoutput 
+            [review]="book.specifications"
+            [favorite]="book.name" 
+            (favoriteclicked)='onfavoriteclicked($event)'></inputoutput>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+</div>
